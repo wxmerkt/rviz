@@ -551,7 +551,7 @@ void RobotLink::createEntityForGeometryElement(const urdf::LinkConstSharedPtr& l
     const urdf::Sphere& sphere = static_cast<const urdf::Sphere&>(geom);
     entity = Shape::createEntity(entity_name, Shape::Sphere, scene_manager_);
 
-    scale = Ogre::Vector3( sphere.radius*2, sphere.radius*2, sphere.radius*2 );
+    scale = Ogre::Vector3( sphere.radius*2*0.01, sphere.radius*2*0.01, sphere.radius*2*0.01 );
     break;
   }
   case urdf::Geometry::BOX:
