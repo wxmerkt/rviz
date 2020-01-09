@@ -64,14 +64,24 @@ Ogre::Entity* Shape::createEntity(const std::string& name, Type type, Ogre::Scen
     break;
 
   case Sphere:
-    mesh_name = "rviz_sphere.mesh";
+    {
+      // mesh_name = "rviz_sphere.mesh";
+      // return scene_manager->createEntity(name, Ogre::SceneManager::PrefabType::PT_SPHERE);
+    }
     break;
 
   default:
     ROS_BREAK();
   }
 
-  return scene_manager->createEntity(name, mesh_name);
+  if (type != Sphere)
+  {
+    return scene_manager->createEntity(name, mesh_name);
+  }
+  else
+  {
+    return scene_manager->createEntity(name, Ogre::SceneManager::PrefabType::PT_SPHERE);
+  }
 }
 
 Shape::Shape( Type type, Ogre::SceneManager* scene_manager, Ogre::SceneNode* parent_node )
