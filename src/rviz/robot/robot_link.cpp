@@ -582,9 +582,6 @@ void RobotLink::createEntityForGeometryElement(const urdf::LinkConstSharedPtr& l
     if ( mesh.filename.empty() )
       return;
 
-    
-    
-
     scale = Ogre::Vector3(mesh.scale.x, mesh.scale.y, mesh.scale.z);
     
     std::string model_name = mesh.filename;

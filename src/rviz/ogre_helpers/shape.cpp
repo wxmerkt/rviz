@@ -104,6 +104,11 @@ Shape::Shape( Type type, Ogre::SceneManager* scene_manager, Ogre::SceneNode* par
   if (entity_)
     offset_node_->attachObject( entity_ );
 
+  if (entity_ && type_ == Shape::Sphere)
+  {
+    offset_node_->scale(Ogre::Vector3(0.01, 0.01, 0.01));  // The PT_SPHERE created is 100 units by default - we need it to be 1 unit.
+  }
+
   ss << "Material";
   material_name_ = ss.str();
   material_ = Ogre::MaterialManager::getSingleton().create( material_name_, ROS_PACKAGE_NAME );

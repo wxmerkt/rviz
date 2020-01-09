@@ -87,11 +87,6 @@ void ShapeMarker::onNewMessage( const MarkerConstPtr& old_message,
   setPosition(pos);
   setOrientation( orient * Ogre::Quaternion( Ogre::Degree(90), Ogre::Vector3(1,0,0) ) );
 
-  if (shape_->getType() == Shape::Sphere)
-  {
-    scale *= 0.01;  // The PT_SPHERE created is 100 units by default - we need it to be 1 unit.
-  }
-
   scale_correct = Ogre::Quaternion( Ogre::Degree(90), Ogre::Vector3(1,0,0) ) * scale;
 
   shape_->setScale(scale_correct);
